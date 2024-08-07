@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 :root {
     --bgColor: #333;
@@ -7,22 +6,26 @@
     --primaryColor: #fd4;
 }
 
+/* General reset and font settings */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Arial', sans-serif;
 }
+
 h1 {
     color: var(--primaryColor);
     text-align: center;
     margin-bottom: 20px;
 }
+
 h1 svg {
     width: 50px;
     fill: var(--primaryColor);
     padding-left: 13px;
 }
+
 body {
     display: flex;
     padding: 0 10px;
@@ -31,52 +34,69 @@ body {
     min-height: 100vh;
     background: var(--bgColor);
 }
+
 #paragraph {
     color: var(--textSecondary);
 }
+
 .result-details {
     color: var(--primaryColor);
 }
+
 ::selection {
     color: var(--textPrimary);
     background: var(--bgColor);
 }
+
+/* Main wrapper styling */
 .wrapper {
-    width: 700px;
-    padding: 35px;
+    width: 100%;
+    max-width: 700px; /* Responsive max-width */
+    padding: 20px;
     background: none;
     border-radius: 10px;
 }
+
+/* Input field (hidden) */
 .wrapper .input-field {
     opacity: 0;
     z-index: -999;
     position: absolute;
 }
+
+/* Content box styling */
 .wrapper .content-box {
-    padding: 13px 20px 0;
+    padding: 15px;
 }
+
 .content-box .typing-text {
     overflow: hidden;
     max-height: 256px;
 }
+
 .typing-text::-webkit-scrollbar {
     width: 0;
 }
+
 .typing-text p {
-    font-size: 21px;
+    font-size: 20px; /* Adjusted for readability */
     text-align: justify;
     letter-spacing: 1px;
     word-break: keep-all;
 }
+
 .typing-text p span {
     position: relative;
 }
+
 .typing-text p span.correct {
     color: var(--textPrimary);
 }
+
 .typing-text p span.incorrect {
     color: #af3642;
 }
+
 .typing-text p span.active::before {
     position: absolute;
     content: "";
@@ -102,9 +122,10 @@ body {
     }
 }
 
+/* Content styling */
 .content-box .content {
-    margin-top: 35px;
-    margin-bottom: 17px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     display: flex;
     padding: 12px 0;
     flex-wrap: wrap;
@@ -113,10 +134,12 @@ body {
     border-radius: 10px;
     border: 3px solid var(--primaryColor);
 }
+
 .content-box ul {
     margin-left: 10px;
     margin-right: 2px;
 }
+
 .content button {
     margin-right: 10px;
     outline: none;
@@ -132,14 +155,16 @@ body {
     background: none;
     transition: transform 0.2s ease;
 }
+
 .content button:active {
     transform: scale(0.89);
 }
+
 .content button:hover {
     background: var(--primaryColor);
     color: var(--textPrimary);
-
 }
+
 .content .result-details {
     display: flex;
     flex-wrap: wrap;
@@ -147,6 +172,7 @@ body {
     width: calc(100% - 140px);
     justify-content: space-between;
 }
+
 .result-details li {
     display: flex;
     height: 20px;
@@ -154,41 +180,46 @@ body {
     position: relative;
     align-items: center;
 }
+
 .result-details li:not(:first-child) {
     padding-left: 22px;
     border-left: 2px solid var(--primaryColor);
 }
+
 .result-details li p {
     font-size: 13px;
 }
+
 .result-details li span {
     display: block;
     font-size: 13px;
-    margin-left:10px;
+    margin-left: 10px;
 }
+
 li span b {
     font-weight: 500;
 }
 
+/* Responsive adjustments */
 @media (max-width: 745px) {
     .wrapper {
-        padding: 20px;
+        padding: 15px;
     }
     .content-box .content {
-        padding: 20px 0;
+        padding: 15px 0;
     }
     .content-box .typing-text {
         max-height: 100%;
     }
     .typing-text p {
-        font-size: 19px;
+        font-size: 18px; /* Adjusted font size */
         text-align: left;
     }
     .content button {
         width: 100%;
-        font-size: 15px;
+        font-size: 14px; /* Adjusted font size */
         padding: 10px 0;
-        margin-top: 20px;
+        margin-top: 15px; /* Adjusted margin */
     }
     .content .result-details {
         width: 100%;
@@ -199,148 +230,21 @@ li span b {
     }
     .result-details li p,
     .result-details li span {
-        font-size: 15px;
+        font-size: 14px; /* Adjusted font size */
     }
 }
+
 @media (max-width: 518px) {
     .wrapper .content-box {
-        padding: 10px 15px 0;
+        padding: 10px 10px 0; /* Adjusted padding */
     }
     .typing-text p {
-        font-size: 13px;
+        font-size: 14px; /* Adjusted font size */
     }
     .result-details li {
-        margin-bottom: 10px;
+        margin-bottom: 8px; /* Adjusted margin */
     }
     .content button {
-        margin-top: 10px;
+        margin-top: 8px; /* Adjusted margin */
     }
 }
-
-/*main {
-    width: 600px;
-    margin: 50px auto;
-}
-
-h1 {
-    margin-left: 70px;
-    align-items: center;
-    display: flex;
-    z-index: -2;
-    color: var(--primaryColor);
-}
-
-h1 svg {
-    width: 40px;
-    fill: var(--primaryColor);
-    padding-left: 10px;
-}
-
-#header {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin: 20px 6px 30px;
-}
-
-#buttons {
-    text-align: right;
-}
-
-#info {
-    color: var(--textPrimary);
-}
-
-button {
-    background: rgba(255, 255, 255, .2);
-    border: 0;
-    color: rgba(255, 255, 255, .5);
-    padding: 5px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#game {
-    line-height: 35px;
-    height: 100px;
-    overflow: hidden;
-    position: relative;
-}
-
-#game:focus {
-    outline: 0;
-}
-
-#words {
-    filter: blur(5px);
-    color: var(--textSecondary);
-}
-
-#game:focus #words {
-    filter: blur(0);
-}
-
-#focus-error {
-    position: absolute;
-    inset: 0;
-    text-align: center;
-    padding-top: 35px;
-}
-
-#game:focus #focus-error {
-    display: none;
-}
-
-.word {
-    display: inline-block;
-    font-family: 'Roboto Mono', monospace;
-    margin: 0 5px;
-}
-
-.letter.correct {
-    color: #fff;
-}
-
-.letter.incorrect {
-    color: #f55;
-}
-
-@keyframes blink {
-    0% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-#cursor {
-    display: none;
-    width: 2px;
-    height: 1.6rem;
-    background: var(--primaryColor);
-    position: fixed;
-    top: 196px;
-    left: 18px;
-    animation: blink .3s infinite ease-in-out;
-}
-
-#game:focus #cursor {
-    display: block;
-}
-
-#game.over #words {
-    opacity: .5;
-    filter: blur(0);
-}
-
-#game.over:focus #cursor {
-    display: none;
-}
-
-#game.over #focus-error {
-    display: none;
-}*/
-
