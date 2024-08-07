@@ -6,7 +6,6 @@
     --primaryColor: #fd4;
 }
 
-/* General reset and font settings */
 * {
     margin: 0;
     padding: 0;
@@ -242,9 +241,9 @@ li span b {
         font-size: 14px; /* Adjusted font size */
     }
     .result-details li {
-        margin-bottom: 8px; /* Adjusted margin */
+        margin: 8px; /* Adjusted margin */
     }
     .content button {
-        margin-top: 8px; /* Adjusted margin */
+        margin: 8px; /* Adjusted margin */
     }
 }
