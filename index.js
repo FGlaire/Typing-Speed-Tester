@@ -48,39 +48,45 @@ function loadParagraph() {
 }
 
 function initTyping() {
-    const characters = typingText.querySelectorAll("span");
-    const typedChar = inpField.value.split("")[charIndex];
-    if (charIndex < characters.length - 1 && timeLeft > 0) {
-        if (!isTyping) {
-            timer = setInterval(initTimer, 1000);
-            isTyping = true;
-        }
-        if (typedChar == null) {
-            if (charIndex > 0) {
-                charIndex--;
-                characters[charIndex].classList.remove("correct", "incorrect");
-            }
-        } else {
-            if (characters[charIndex].innerText === typedChar) {
-                characters[charIndex].classList.add("correct");
-            } else {
-                mistakes++;
-                characters[charIndex].classList.add("incorrect");
-            }
-            charIndex++;
-        }
-        characters.forEach(span => span.classList.remove("active"));
-        characters[charIndex].classList.add("active");
+  const characters = typingText.querySelectorAll("span");
+  const typedChar = inpField.value.slice(charIndex, charIndex + 1); // Get the current character
 
-        const wpm = Math.round(((charIndex - mistakes) / 5) / (maxTime - timeLeft) * 60);
-        wpmTag.innerText = wpm < 0 || !wpm || wpm === Infinity ? 0 : wpm;
-        mistakeTag.innerText = mistakes;
-        cpmTag.innerText = charIndex - mistakes;
-    } else {
-        clearInterval(timer);
-        inpField.value = "";
-    }
+  if (charIndex < characters.length - 1 && timeLeft > 0) {
+      if (!isTyping) {
+          timer = setInterval(initTimer, 1000);
+          isTyping = true;
+      }
+
+      // Handle backspace
+      if (typedChar === "" && charIndex > 0) {
+          charIndex--;
+          characters[charIndex].classList.remove("correct", "incorrect");
+      } else if (typedChar === characters[charIndex].innerText) {
+          characters[charIndex].classList.add("correct");
+          charIndex++;
+      } else if (typedChar !== characters[charIndex].innerText) {
+          mistakes++;
+          characters[charIndex].classList.add("incorrect");
+          charIndex++;
+      }
+
+      // Ensure the next character is active
+      characters.forEach(span => span.classList.remove("active"));
+      if (charIndex < characters.length) {
+          characters[charIndex].classList.add("active");
+      }
+
+      // Calculate WPM, CPM, and update the DOM
+      const wpm = Math.round(((charIndex - mistakes) / 5) / (maxTime - timeLeft) * 60);
+      wpmTag.innerText = wpm < 0 || !wpm || wpm === Infinity ? 0 : wpm;
+      mistakeTag.innerText = mistakes;
+      cpmTag.innerText = charIndex - mistakes;
+  } else {
+      clearInterval(timer);
+      inpField.value = "";
+  }
 }
+
 
 function initTimer() {
     if (timeLeft > 0) {
