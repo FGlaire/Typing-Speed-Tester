@@ -1,163 +1,110 @@
-const words = 'in one good real one not school set they state high life consider on and not come what also for set point can want as while with of order child about school thing never hold find order each too between program work end you home place around while place problem end begin interest while public or where see time those increase interest be give end think seem small as both another a child same eye you between way do who into again good fact than under very head become real possible some write know however late each that with because that place nation only for each change form consider we would interest with world so order or run more open that large write turn never over open each over change still old take hold need give by consider line only leave while what set up number part form want against great problem can because head so first this here would course become help year first end want both fact public long word down also long for without new turn against the because write seem line interest call not if line thing what work people way may old consider leave hold want life between most place may if go who need fact such program where which end off child down change to from people high during people find to however into small new general it do that could old for last get another hand much eye great no work and with but good there last think can around use like number never since world need what we around part show new come seem while some and since still small these you general which seem will place come order form how about just also they with state late use both early too lead general seem there point take general seem few out like might under if ask while such interest feel word right again how about system such between late want fact up problem stand new say move a lead small however large public out by eye here over so be way use like say people work for since interest so face order school good not most run problem group run she late other problem real form what just high no man do under would to each too end point give number child through so this large see get form also all those course to work during about he plan still so like down he look down where course at who plan way so since come against he all who at world because while so few last these mean take house who old way large no first too now off would in this course present order home public school back own little about he develop of do over help day house stand present another by few come that down last or use say take would each even govern play around back under some line think she even when from do real problem between long as there school do as mean to all on other good may from might call world thing life turn of he look last problem after get show want need thing old other during be again develop come from consider the now number say life interest to system only group world same state school one problem between for turn run at very against eye must go both still all a as so after play eye little be those should out after which these both much house become both school this he real and may mean time by real number other as feel at end ask plan come turn by all head increase he present increase use stand after see order lead than system here ask in of look point little too without each for both but right we come world much own set we right off long those stand go both but under now must real general then before with much those at no of we only back these person plan from run new as own take early just increase only look open follow get that on system the mean plan man over it possible if most late line would first without real hand say turn point small set at in system however to be home show new again come under because about show face child know person large program how over could thing from out world while nation stand part run have look what many system order some one program you great could write day do he any also where child late face eye run still again on by as call high the must by late little mean never another seem to leave because for day against public long number word about after much need open change also'.split(' ');
-const wordsCount = words.length;
-const gameTime = 30 * 1000;
-window.timer = null;
-window.gameStart = null;
-window.pauseTime = 0;
+const paragraphs = [
+  "Their politician was, in this moment, a notour paperback. The first armless grouse is, in its own way, a gear. The coat is a wash. However, a cake is the llama of a caravan. Snakelike armies show us how playgrounds can be viscoses. Framed in a different way, they were lost without the fatal dogsled that composed their waitress. Far from the truth, the cockney freezer reveals itself as a wiggly tornado to those who look. The first hawklike sack.",
+  "Authors often misinterpret the lettuce as a folklore rabbi, when in actuality it feels more like an uncursed bacon. Pursued distances show us how mother-in-laws can be charleses. Authors often misinterpret the lion as a cormous science, when in actuality it feels more like a leprous lasagna. Recent controversy aside, their band was, in this moment, a racemed suit. The clutch of a joke becomes a togaed chair. The first pickled chess is.",
+  "In modern times the first scrawny kitten is, in its own way, an input. An ostrich is the beginner of a roast. An appressed exhaust is a gun of the mind. A recorder is a grade from the right perspective. A hygienic is the cowbell of a skin. Few can name a dun brazil that isn't a highbrow playroom. The unwished beast comes from a thorny oxygen. An insured advantage's respect comes with it the thought that the lucid specialist is a fix.",
+  "What we don't know for sure is whether or not a pig of the coast is assumed to be a hardback pilot. The literature would have us believe that a dusky clave is not but an objective. Few can name a limbate leo that isn't a sunlit silver. The bow is a mitten. However, the drawer is a bay. If this was somewhat unclear, few can name a paunchy blue that isn't a conoid bow. The undrunk railway reveals itself as a downstage bamboo to those who look.",
+  "An aunt is a bassoon from the right perspective. As far as we can estimate, some posit the melic myanmar to be less than kutcha. One cannot separate foods from blowzy bows. The scampish closet reveals itself as a sclerous llama to those who look. A hip is the skirt of a peak. Some hempy laundries are thought of simply as orchids. A gum is a trumpet from the right perspective. A freebie flight is a wrench of the mind. Some posit the croupy.",
+  "A baby is a shingle from the right perspective. Before defenses, collars were only operations. Bails are gleesome relatives. An alloy is a streetcar's debt. A fighter of the scarecrow is assumed to be a leisured laundry. A stamp can hardly be considered a peddling payment without also being a crocodile. A skill is a meteorology's fan. Their scent was, in this moment, a hidden feeling. The competitor of a bacon becomes a boxlike cougar.",
+  "A broadband jam is a network of the mind. One cannot separate chickens from glowing periods. A production is a faucet from the right perspective. The lines could be said to resemble zincoid females. A deborah is a tractor's whale. Cod are elite japans. Some posit the wiglike norwegian to be less than plashy. A pennoned windchime's burst comes with it the thought that the printed trombone is a supply. Relations are restless tests.",
+  "In recent years, some teeming herons are thought of simply as numbers. Nowhere is it disputed that an unlaid fur is a marble of the mind. Far from the truth, few can name a glossy lier that isn't an ingrate bone. The chicken is a giraffe. They were lost without the abscessed leek that composed their fowl. An interviewer is a tussal bomb. Vanward maracas show us how scarfs can be doubts. Few can name an unguled punch that isn't pig.",
+  "A cough is a talk from the right perspective. A designed tractor's tray comes with it the thought that the snuffly flax is a rainbow. Their health was, in this moment, an earthy passbook. This could be, or perhaps the swordfishes could be said to resemble healthy sessions. A capricorn is a helium from the right perspective. However, a sled is a mailman's tennis. The competitor of an alarm becomes a toeless raincoat. Their twist was, in this moment.",
+  "Authors often misinterpret the flag as a wayless trigonometry, when in actuality it feels more like a bousy gold. Few can name a jasp oven that isn't a stutter grape. They were lost without the huffy religion that composed their booklet. Those waves are nothing more than pedestrians. Few can name a quartered semicolon that isn't a rounding scooter. Though we assume the latter, the literature would have us believe.",
+  "This could be, or perhaps few can name a pasteboard quiver that isn't a brittle alligator. A swordfish is a death's numeric. Authors often misinterpret the mist as a swelling asphalt, when in actuality it feels more like a crosswise closet. Some posit the tonal brother-in-law to be less than newborn. We know that the sizes could be said to resemble sleepwalk cycles. Before seasons, supplies were only fighters. Their stew was, in this moment.",
+  "The vision of an attempt becomes a lawny output. Dibbles are mis womens. The olden penalty reveals itself as a bustled field to those who look. Few can name a chalky force that isn't a primate literature. However, they were lost without the gamy screen that composed their beret. Nowhere is it disputed that a step-uncle is a factory from the right perspective. One cannot separate paints from dreary windows. What we don't know for sure is whether.",
+  "A tramp is a siamese from the right perspective. We know that a flitting monkey's jaw comes with it the thought that the submersed break is a pamphlet. Their cream was, in this moment, a seedy daffodil. The nest is a visitor. Far from the truth, they were lost without the released linen that composed their step-sister. A vibraphone can hardly be considered a pardine process without also being an archaeology. The bay of a hyacinth becomes.",
+  "The frosts could be said to resemble backstage chards. One cannot separate colleges from pinkish bacons. Far from the truth, the mom of a rooster becomes a chordal hydrogen. A tempo can hardly be considered a purer credit without also being a pajama. The first combined ease is, in its own way, a pantyhose. Extending this logic, the guides could be said to resemble reddest monkeies. Framed in a different way, an addle hemp is a van.",
+  "Far from the truth, an ajar reminder without catamarans is truly a foundation of smarmy semicircles. An alike board without harps is truly a satin of fated pans. A hubcap sees a parent as a painful beautician. The zeitgeist contends that some intense twigs are thought of simply as effects. A cross is a poppied tune. The valanced list reveals itself as an exchanged wrist to those who look. Recent controversy aside.",
+  "The hefty opinion reveals itself as a sterile peer-to-peer to those who look. This could be, or perhaps the watch of a diamond becomes a bosom baboon. In recent years, some posit the unstuffed road to be less than altern. It's an undeniable fact, really; the livelong lettuce reveals itself as an unstuffed soda to those who look. In ancient times a bit is a balance's season. The popcorn of a morning becomes a moonless beauty.",
+  "If this was somewhat unclear, a friend is a fridge from the right perspective. An upset carriage is a stitch of the mind. To be more specific, a temper is a pair from the right perspective. Authors often misinterpret the liquid as a notchy baseball, when in actuality it feels more like an unbarbed angle. Though we assume the latter, the first vagrom report is, in its own way, a tower. We know that the octopus of a cd becomes an unrent dahlia.",
+  "A reptant discussion's rest comes with it the thought that the condemned syrup is a wish. The drake of a wallaby becomes a sonant harp. If this was somewhat unclear, spotty children show us how technicians can be jumps. Their honey was, in this moment, an intime direction. A ship is the lion of a hate. They were lost without the croupous jeep that composed their lily. In modern times a butcher of the birth is assumed to be a spiral bean.",
+  "Those cowbells are nothing more than elements. This could be, or perhaps before stockings, thoughts were only opinions. A coil of the exclamation is assumed to be a hurtless toy. A board is the cast of a religion. In ancient times the first stinko sailboat is, in its own way, an exchange. Few can name a tutti channel that isn't a footless operation. Extending this logic, an oatmeal is the rooster of a shake. Those step-sons are nothing more than matches.",
+];
 
-function addClass(el,name) {
-  el.className += ' '+name;
-}
-function removeClass(el,name) {
-  el.className = el.className.replace(name,'');
-}
+const typingText = document.querySelector(".typing-text p");
+const inpField = document.querySelector(".wrapper .input-field");
+const tryAgainBtn = document.querySelector(".content button");
+const timeTag = document.querySelector(".time span b");
+const mistakeTag = document.querySelector(".mistake span");
+const wpmTag = document.querySelector(".wpm span");
+const cpmTag = document.querySelector(".cpm span");
 
-function randomWord() {
-  const randomIndex = Math.ceil(Math.random() * wordsCount);
-  return words[randomIndex - 1];
-}
+let timer;
+let maxTime = 60;
+let timeLeft = maxTime;
+let charIndex = 0;
+let mistakes = 0;
+let isTyping = false;
 
-function formatWord(word) {
-  return `<div class="word"><span class="letter">${word.split('').join('</span><span class="letter">')}</span></div>`;
-}
-
-function newGame() {
-  document.getElementById('words').innerHTML = '';
-  for (let i = 0; i < 200; i++) {
-    document.getElementById('words').innerHTML += formatWord(randomWord());
-  }
-  addClass(document.querySelector('.word'), 'current');
-  addClass(document.querySelector('.letter'), 'current');
-  document.getElementById('info').innerHTML = (gameTime / 1000) + '';
-  window.timer = null;
-}
-
-function getWpm() {
-  const words = [...document.querySelectorAll('.word')];
-  const lastTypedWord = document.querySelector('.word.current');
-  const lastTypedWordIndex = words.indexOf(lastTypedWord) + 1;
-  const typedWords = words.slice(0, lastTypedWordIndex);
-  const correctWords = typedWords.filter(word => {
-    const letters = [...word.children];
-    const incorrectLetters = letters.filter(letter => letter.className.includes('incorrect'));
-    const correctLetters = letters.filter(letter => letter.className.includes('correct'));
-    return incorrectLetters.length === 0 && correctLetters.length === letters.length;
-  });
-  return correctWords.length / gameTime * 60000;
-}
-
-function gameOver() {
-  clearInterval(window.timer);
-  addClass(document.getElementById('game'), 'over');
-  const result = getWpm();
-  document.getElementById('info').innerHTML = `WPM: ${result}`;
+function loadParagraph() {
+    const ranIndex = Math.floor(Math.random() * paragraphs.length);
+    typingText.innerHTML = "";
+    paragraphs[ranIndex].split("").forEach(char => {
+        let span = `<span>${char}</span>`;
+        typingText.innerHTML += span;
+    });
+    typingText.querySelectorAll("span")[0].classList.add("active");
+    document.addEventListener("keydown", () => inpField.focus());
+    typingText.addEventListener("click", () => inpField.focus());
 }
 
-document.getElementById('game').addEventListener('keyup', ev => {
-  const key = ev.key;
-  const currentWord = document.querySelector('.word.current');
-  const currentLetter = document.querySelector('.letter.current');
-  const expected = currentLetter?.innerHTML || ' ';
-  const isLetter = key.length === 1 && key !== ' ';
-  const isSpace = key === ' ';
-  const isBackspace = key === 'Backspace';
-  const isFirstLetter = currentLetter === currentWord.firstChild;
+function initTyping() {
+    const characters = typingText.querySelectorAll("span");
+    const typedChar = inpField.value.split("")[charIndex];
+    if (charIndex < characters.length - 1 && timeLeft > 0) {
+        if (!isTyping) {
+            timer = setInterval(initTimer, 1000);
+            isTyping = true;
+        }
+        if (typedChar == null) {
+            if (charIndex > 0) {
+                charIndex--;
+                characters[charIndex].classList.remove("correct", "incorrect");
+            }
+        } else {
+            if (characters[charIndex].innerText === typedChar) {
+                characters[charIndex].classList.add("correct");
+            } else {
+                mistakes++;
+                characters[charIndex].classList.add("incorrect");
+            }
+            charIndex++;
+        }
+        characters.forEach(span => span.classList.remove("active"));
+        characters[charIndex].classList.add("active");
 
-  if (document.querySelector('#game.over')) {
-    return;
-  }
-
-  console.log({key,expected});
-
-  if (!window.timer && isLetter) {
-    window.timer = setInterval(() => {
-      if (!window.gameStart) {
-        window.gameStart = (new Date()).getTime();
-      }
-      const currentTime = (new Date()).getTime();
-      const msPassed = currentTime - window.gameStart;
-      const sPassed = Math.round(msPassed / 1000);
-      const sLeft = Math.round((gameTime / 1000) - sPassed);
-      if (sLeft <= 0) {
-        gameOver();
-        return;
-      }
-      document.getElementById('info').innerHTML = sLeft + '';
-    }, 1000);
-  }
-
-  if (isLetter) {
-    if (currentLetter) {
-      addClass(currentLetter, key === expected ? 'correct' : 'incorrect');
-      removeClass(currentLetter, 'current');
-      if (currentLetter.nextSibling) {
-        addClass(currentLetter.nextSibling, 'current');
-      }
+        const wpm = Math.round(((charIndex - mistakes) / 5) / (maxTime - timeLeft) * 60);
+        wpmTag.innerText = wpm < 0 || !wpm || wpm === Infinity ? 0 : wpm;
+        mistakeTag.innerText = mistakes;
+        cpmTag.innerText = charIndex - mistakes;
     } else {
-      const incorrectLetter = document.createElement('span');
-      incorrectLetter.innerHTML = key;
-      incorrectLetter.className = 'letter incorrect extra';
-      currentWord.appendChild(incorrectLetter);
+        clearInterval(timer);
+        inpField.value = "";
     }
-  }
+}
 
-  if (isSpace) {
-    if (expected !== ' ') {
-      const lettersToInvalidate = [...document.querySelectorAll('.word.current .letter:not(.correct)')];
-      lettersToInvalidate.forEach(letter => {
-        addClass(letter, 'incorrect');
-      });
+function initTimer() {
+    if (timeLeft > 0) {
+        timeLeft--;
+        timeTag.innerText = timeLeft;
+        const wpm = Math.round(((charIndex - mistakes) / 5) / (maxTime - timeLeft) * 60);
+        wpmTag.innerText = wpm < 0 || !wpm || wpm === Infinity ? 0 : wpm;
+    } else {
+        clearInterval(timer);
     }
-    removeClass(currentWord, 'current');
-    addClass(currentWord.nextSibling, 'current');
-    if (currentLetter) {
-      removeClass(currentLetter, 'current');
-    }
-    addClass(currentWord.nextSibling.firstChild, 'current');
-  }
+}
 
-  if (isBackspace) {
-    if (currentLetter && isFirstLetter) {
-      // make prev word current, last letter current
-      removeClass(currentWord, 'current');
-      addClass(currentWord.previousSibling, 'current');
-      removeClass(currentLetter, 'current');
-      addClass(currentWord.previousSibling.lastChild, 'current');
-      removeClass(currentWord.previousSibling.lastChild, 'incorrect');
-      removeClass(currentWord.previousSibling.lastChild, 'correct');
-    }
-    if (currentLetter && !isFirstLetter) {
-      // move back one letter, invalidate letter
-      removeClass(currentLetter, 'current');
-      addClass(currentLetter.previousSibling, 'current');
-      removeClass(currentLetter.previousSibling, 'incorrect');
-      removeClass(currentLetter.previousSibling, 'correct');
-    }
-    if (!currentLetter) {
-      addClass(currentWord.lastChild, 'current');
-      removeClass(currentWord.lastChild, 'incorrect');
-      removeClass(currentWord.lastChild, 'correct');
-    }
-  }
+function resetGame() {
+    loadParagraph();
+    clearInterval(timer);
+    timeLeft = maxTime;
+    charIndex = mistakes = isTyping = 0;
+    inpField.value = "";
+    timeTag.innerText = timeLeft;
+    wpmTag.innerText = 0;
+    mistakeTag.innerText = 0;
+    cpmTag.innerText = 0;
+}
 
-  // move lines / words
-  if (currentWord.getBoundingClientRect().top > 250) {
-    const words = document.getElementById('words');
-    const margin = parseInt(words.style.marginTop || '0px');
-    words.style.marginTop = (margin - 35) + 'px';
-  }
-
-  // move cursor
-  const nextLetter = document.querySelector('.letter.current');
-  const nextWord = document.querySelector('.word.current');
-  const cursor = document.getElementById('cursor');
-  cursor.style.top = (nextLetter || nextWord).getBoundingClientRect().top + 2 + 'px';
-  cursor.style.left = (nextLetter || nextWord).getBoundingClientRect()[nextLetter ? 'left' : 'right'] + 'px';
-});
-
-document.getElementById('newGameBtn').addEventListener('click', () => {
-  gameOver();
-  newGame();
-});
-
-newGame();
+loadParagraph();
+inpField.addEventListener("input", initTyping);
+tryAgainBtn.addEventListener("click", resetGame);
